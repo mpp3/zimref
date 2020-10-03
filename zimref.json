@@ -1,0 +1,92 @@
+{
+    "palabras clave": {
+	"new": {
+	    "Descripción": "Crea un objeto nuevo de la clase especificada.",
+	    "Ejemplo": "new Circle(100, red);"
+	},
+	"let": {
+	    "Descripción": "Crea una variable con el nombre especificado.",
+	    "Ejemplo": "let c = new Circle(100, red);"
+	}
+    }
+    "funciones": {
+	"alert(mensaje)": {
+	    "Descripción": "Muestra una ventana con el mensaje especificado.",
+	    "Ejemplo": "alert('Hello, World');"
+	},
+	"console.log(mensaje)": {
+	    "Descripción": "Muestra el mensaje especificado en la consola."
+	},
+	"prompt(mensaje)": {
+	    "Descripción": "Muestra una ventana con el mensaje especificado y un cuadro de texto donde el usuario puede escribir. Devuelve el texto escrito por el usuario en caso de que pulse 'Aceptar'."
+	}
+    },
+    "clases": {
+	"Container": {
+	    "Descripción": "Se usa para contener otros objetos gráficos (y otros contenedores). Las operaciones realizadas sobre el contenedor se aplican a todos los objetos contenidos. También reciben eventos.",
+	    "Extiende": [""],
+	    "Propiedades": {
+		"alpha": "(por defecto, 1.0) Nivel de transparencia entre 0.0 (transparente) y 1.0 (opaco).",
+		"cursor": "(por defecto, null) Tipo de cursor (puntero, ayuda, texto) que se muestra cuando el usuario se mueve por encima del contenedor. Es necesario activar los eventos mouseover usando el método enableMouseOver, para poder usar esta propiedad.",
+		"numChildren": "Número de objetos contenidos en el contenedor.",
+		"regX": "(por defecto, 0) Coordenada horizontal del punto de registro, relativa a la esquina superior izquierda del objeto.",
+		"regY": "(por defecto, 0) Coordenada vertical del punto de registro, relativa a la esquina superior izquierda del objeto.",
+		"rotation": "(por defecto, 0) La rotación en grados",
+		"scale": "(por defecto, 1) Factor de escala con que se dibuja el objeto.",
+		"visible": "(por defecto, true) Indica si el objeto se dibujará en la pantalla.",
+		"x": "(por defecto, 0) Coordenada horizontal de la posición del objeto, relativa a su contenedor.",
+		"y": "(por defecto, 0) Coordenada vertical de la posición del objeto, relativa a su contenedor."
+	    },
+	    "Métodos": {
+		"addChild(child)": "Añade el objeto 'child' a este contenedor, a la parte superior de la lista.",
+		"addChildAt(child, index)": "Añade el objeto 'child' a este contenedor, en la posición indicada por index.",
+		"addEventListener(type, listener)": "Añade una función de respuesta, 'listener', al evento de tipo 'type'.",
+		"contains(child)": "Indica si el objeto 'child' es uno de los contenidos en este contenedor (o si es él mismo).",
+		"getChildAt(level)": "Devuelve el objeto contenido en el nivel 'level'.",
+		"getChildByName(name)": "Devuelve el objeto contenido cuyo nombre es 'name'.",
+		"getChildIndex(child)": "Devuelve el índice del objeto contenido 'child', en la lista de objetos contenidos.",
+		"getObjectsUnderPoint(x, y)": "Devuelve un array con los objetos contenidos que incluyen la posición ('x', 'y').",
+		"getObjectUnderPoint(x, y)": "Devuelve el objeto contenido en la posición superior, que incluye la posición ('x', 'y').",
+		"globalToLocal(x,y)": "Transforma las coordenadas absolutas especificadas a coordenadas relativas al objeto.",
+		"isVisible()": "Indica si el objeto es visible.",
+		"localToGlobal(x,y)": "Transforma las coordenadas dadas, relativas al objeto, en coordenadas absolutas, relativas a la ventana.",
+		"off(type, listener)": "Elimina el manejador de eventos 'listener' de la lista de manejadores de los eventos de tipo 'type'. Es necesario pasar el 'listener' tal como lo devuelve la función 'on'.",
+		"on(type, listener)": "Añade el manejador 'listener' a la lista de manejadores de eventos del tipo 'type'.",
+		"removeAllChildren()": "Quita todos los objetos de la lista de objetos contenidos.",
+		"removeAllEventListeners([type])": "Quita todos los manejadores de eventos para el tipo 'type', o para todos los tipos.",
+		"removeChild(child)": "Quita el objeto 'child' de la lista de objetos contenidos.",
+		"removeChildAt(level)": "Quita el objeto que está en la posición 'level' de la lista de objetos contenidos.",
+		"removeEventListener(type, listener)": "Quita el manejador de eventos especificado.",
+		"setChildIndex(child, index)": "Cambia la posición del objeto 'child' en la lista de objetos contenidos, a la posición 'index'."
+	    },
+	    "Eventos": {
+		"added": "Se dispara cuando el objeto es añadido a un contenedor.",
+		"click": "Se dispara cuando el usuario presiona y suelta el botón izquierdo del ratón sobre el objeto.",
+		"dblclick": "Se dispara cuando el usuario hace doble clic con el botón izquierdo del ratón sobre el objeto.",
+		"mousedown": "Se dispara cuando el usuario presiona el botón izquierdo del ratón sobre el objeto.",
+		"mouseout": "Se dispara cuando el ratón sale del objeto. Este evento debe ser habilitado usando 'enableMouseOver'.",
+		"mouseover": "Se dispara cuando el ratón entra en el objeto. Este evento debe ser habilitado usando 'enableMouseOver'.",
+		"pressmove": "Después de que haya ocurrido un evento 'mousedown' sobre el objeto, y mientras el botón del ratón siga pulsado, este evento se dispara cada vez que el ratón se mueve.",
+		"pressup": "Después de que haya ocurrido un evento 'mousedown' sobre el objeto, cuando se suelta el botón del ratón, se dispara este evento.",
+		"removed": "Se dispara cuando este objeto se quita de su contenedor.",
+		"tick": "Se dispara cada vez que se actualiza la escena."
+	    }
+	},
+	"Circle": {
+	    "Descripción": "Objeto gráfico con forma de círculo",
+	    "Extiende": "Container",
+	    "Propiedades": {
+		"radius": "(por defecto, 50) radio en píxeles",
+		"color": "(por defecto, black) color de relleno del círculo",
+		"borderColor": "(por defecto, ninguno) color del borde",
+		"borderWidth": "(por defecto, 1 píxel, si hay borde) grosor del borde en píxeles",
+		"dashed": "(por defecto, false) borde con línea discontinua",
+		"percent": "(por defecto, 100) porcentaje de sector circular",
+		"percentClose": "(por defecto, false) completar borde cuando percent < 100"
+	    },
+	    "Métodos": {},
+	    "Eventos": {}
+	}
+    }
+}
+
